@@ -15,6 +15,10 @@ import { theme } from '../styles/theme'
 export default function LoginScreen ({ navigation }) {
   const { control, handleSubmit, formState: { errors } } = useForm({
     mode: 'onChange',
+    defaultValues: {
+      email: 'olehferents@gmail.com',
+      password: 'qwe',
+    }
   })
   const dispatch = useDispatch()
   const { isLoading, token } = useSelector(state => state.auth)
@@ -25,17 +29,14 @@ export default function LoginScreen ({ navigation }) {
 
   useEffect(() => {
     if (token) {
-      navigation.reset({
-        index: 0,
-        routes: [{ name: 'Dashboard' }],
-      })
+      navigation.navigate('BottomTab', { screen: 'Dashboard' })
     }
   }, [token])
 
   if (isLoading) {
     return (
       <Background>
-        <ActivityIndicator animating={true} color={Colors.red800} />
+        <ActivityIndicator animating={true} color={Colors.red800}/>
       </Background>
     )
   }
@@ -107,7 +108,7 @@ export default function LoginScreen ({ navigation }) {
       </Button>
       <View style={styles.row}>
         <Text>Don’t have an account? </Text>
-        <TouchableOpacity onPress={() => navigation.replace('RegisterScreen')}>
+        <TouchableOpacity onPress={() => navigation.replace('SignUpScreen')}>
           <Text style={styles.link}>Sign up</Text>
         </TouchableOpacity>
       </View>

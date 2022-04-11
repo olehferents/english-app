@@ -9,7 +9,7 @@ import TextInput from '../components/TextInput'
 import BackButton from '../components/BackButton'
 import { theme } from '../styles/theme'
 
-export default function RegisterScreen ({ navigation }) {
+export default function SignUpScreen ({ navigation }) {
   const onSignUpPressed = () => {
     navigation.reset({
       index: 0,

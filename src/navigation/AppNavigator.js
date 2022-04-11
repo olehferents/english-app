@@ -2,7 +2,7 @@ import React from 'react'
 import { createNativeStackNavigator } from '@react-navigation/native-stack'
 import StartScreen from '../screens/StartScreen'
 import AuthNavigator from './AuthNavigator'
-import BottomTabNavigator from './BottomTabNavigator'
+import DashboardNavigator from './DashboardNavigator'
 
 const Stack = createNativeStackNavigator()
 
@@ -24,10 +24,10 @@ const AppNavigator = () => {
         name="Auth"
         component={AuthNavigator}
       />
-      {/*<Stack.Screen*/}
-      {/*  name="Dashboard"*/}
-      {/*  component={BottomTabNavigator}*/}
-      {/*/>*/}
+      <Stack.Screen
+        name="BottomTab"
+        component={DashboardNavigator}
+      />
     </Stack.Navigator>
   )
 }
